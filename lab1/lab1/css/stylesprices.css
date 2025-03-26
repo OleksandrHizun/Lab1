@@ -1,0 +1,153 @@
+
+body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-rows: 150px 50px 1fr auto;
+    grid-template-areas: 
+        "head"
+        "nav"
+        "content"
+        "footer";
+    grid-gap: 2px;
+    height: 100vh;
+}
+
+header {
+    grid-area: head;
+    background: url('../images/header.jpg') center/cover no-repeat, rgba(238, 238, 238, 0.7);
+    color: white;
+    text-align: center;
+    line-height: 80px;
+    position: relative;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+header h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 34px;
+    color: white;
+}
+
+nav {
+    grid-area: nav;
+    background-color: #4d4f50;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 15px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+    background-color: rgb(123, 123, 123);
+    padding: 5px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none; 
+    font-size: 20px; 
+    
+}
+
+nav ul li a:hover {
+    color: rgb(165, 158, 158); 
+}
+
+nav ul li a:active {
+    color: rgb(212, 10, 10); 
+}
+
+
+main {
+    grid-area: content;
+    background-color: #99999e;
+    color: #333;
+    text-align: center;
+    padding: 10px;
+}
+
+.price-list {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #a3a3a3;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.price-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.price-list th, .price-list td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+}
+
+.price-list th {
+    background-color: #4d4f50;
+    color: white;
+}
+
+.price-list tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.price-list tr:hover {
+    background-color: rgb(165, 158, 158);
+}
+
+
+footer {
+    grid-area: footer;
+    background-color: #333333;
+    color: #666666;
+    text-align: center;
+    line-height: 50px;
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px 50px auto auto;
+        grid-template-areas: 
+            "head"
+            "nav"
+            "content"
+            "footer";
+    }
+
+    .price-list {
+        width: 90%;
+    }
+
+    .price-list th, .price-list td {
+        padding: 8px;
+        font-size: 16px;
+    }
+}
