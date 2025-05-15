@@ -1,0 +1,259 @@
+
+body {
+    font-family: "Arial", sans-serif;
+}
+.grid-container {
+    display: grid;
+
+    grid-template-rows: 150px 50px 1fr auto;
+    grid-template-areas: 
+        "head"
+        "nav"
+        "content"
+        "footer";
+    grid-gap: 2px;
+    height: 100vh;
+}
+
+header {
+    grid-area: head;
+    background: url('../images/header.jpg') center/cover no-repeat, rgba(238, 238, 238, 0.7);
+    color: white;
+    text-align: center;
+    line-height: 80px;
+    position: relative;
+}
+
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); 
+    z-index: 1;
+}
+
+header h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 34px;
+    color: white;
+}
+
+nav {
+    grid-area: nav;
+    background-color: #4d4f50;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 15px;
+}
+
+main {
+    grid-area: content;
+    background-color: #99999e;
+    color: #333;
+    text-align: center;
+    padding: 10px;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+    background-color: rgb(123, 123, 123);
+    padding: 5px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none; 
+    font-size: 20px; 
+    
+}
+
+nav ul li a:hover {
+    color: rgb(165, 158, 158); 
+}
+
+nav ul li a:active {
+    color: rgb(212, 10, 10); 
+}
+
+
+h1 {
+    font-size: 24px;
+    color: #dadada;
+}
+
+p {
+    font-size: 16px;
+    color: #666666;
+}
+
+p.big_black {
+    font-size: 18px;
+    color: #000000;
+}
+
+div#catalog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div.item {
+    flex-basis: calc(30% - 40px); 
+    margin: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+div.item div {
+    font-size: 18px; 
+    font-family: "Arial", sans-serif; 
+    font-weight: bold; 
+    color: #333; 
+    margin-top: 5px; 
+}
+
+div.item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+div.item:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: rgb(165, 158, 158);
+}
+
+div.item:active {
+    color: rgb(212, 10, 10); 
+}
+
+
+@media (max-width: 768px) {
+    div.item {
+      flex-basis: 80%; 
+      margin: 10px 0; 
+    }
+    
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px 50px auto auto;
+        grid-template-areas: 
+            "head"
+            "nav"
+            "content"
+            "footer";
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background: rgb(184, 184, 184);
+    margin: 10% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 6px;
+    position: relative;
+    box-shadow: 0 0 10px #000;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #000000;
+}
+
+#cart-items {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #343434;
+    padding-bottom: 5px;
+}
+
+.cart-item input {
+    width: 40px;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.cart-item button {
+    background: #e74c3c;
+    border: none;
+    color: white;
+    padding: 2px 6px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.add-to-cart {
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: #3b3b3b;
+    color: rgb(219, 219, 219);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#open-cart {
+    margin-top: 20px;
+    padding: 10px 16px;
+    background-color: #820000;
+    color: rgb(219, 219, 219);
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#open-cart:hover,
+.add-to-cart:hover {
+    background-color: #bd0202;
+}
